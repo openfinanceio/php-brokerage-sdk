@@ -13,6 +13,23 @@ class BrokerAPIClient extends BaseAPIClient implements BrokerAPIClientInterface 
         $data = $this->restCall($ep[0], $ep[1], $opts);
     }
 
+    public function getAuthUrl(string $scopes=null) {
+        //TODO: implement OAuth considerations
+    }
+
+    public function handoff($intent=null) {
+        if (is_string($intent)) $intentId = $intent;
+        elseif ($intent instanceof \CFX\IntentInterface) $intentId = $intent->getKey();
+
+        $url = $this->baseHandoffUri;
+        if ($intentId) $url .= $intentId;
+        $url .= '?referrer='.$this->apiKey;
+
+        // do handoff
+        header("Location: $url");
+        die();
+    }
+
 
 
 
