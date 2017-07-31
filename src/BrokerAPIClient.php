@@ -4,14 +4,45 @@ namespace CFX;
 class BrokerAPIClient extends BaseAPIClient implements BrokerAPIClientInterface {
     protected $cache = array();
 
-    public function users(array $opts=[], bool $async=false) {
-        if (count($opts) == 0) return $this->factory->new('user', null);
 
-        //TODO: Implement async calls
 
-        $ep = $this->getEndpoint('users-get');
-        $data = $this->restCall($ep[0], $ep[1], $opts);
+
+    // SubAPIs
+    // Note that sub-apis receive both Factory and BrokerAPIClient at instantiation.
+
+    public function assets(array $props=[]) {
+        return $this->factory->new('api-object', 'asset', $props);
     }
+    public function bankAccounts(array $props=[]) {
+        return $this->factory->new('api-object', 'bank-account', $props);
+    }
+    public function holdings(array $props=[]) {
+        return $this->factory->new('api-object', 'holding', $props);
+    }
+    public function intents(array $props=[]) {
+        return $this->factory->new('api-object', 'intent', $props);
+    }
+    public function legalEntities(array $props=[]) {
+        return $this->factory->new('api-object', 'legal-entity', $props);
+    }
+    public function orders(array $props=[]) {
+        return $this->factory->new('api-object', 'order', $props);
+    }
+    public function portfolios(array $props=[]) {
+        return $this->factory->new('api-object', 'portfolio', $props);
+    }
+    public function transactions(array $props=[]) {
+        return $this->factory->new('api-object', 'transaction', $props);
+    }
+    public function users(array $props=[]) {
+        return $this->factory->new('api-object', 'user', $props);
+    }
+
+
+
+
+
+
 
     public function getAuthUrl(string $scopes=null) {
         //TODO: implement OAuth considerations
@@ -28,21 +59,6 @@ class BrokerAPIClient extends BaseAPIClient implements BrokerAPIClientInterface 
         // do handoff
         header("Location: $url");
         die();
-    }
-
-
-
-
-
-
-
-    // endpoints
-    protected function getEndpoint(string $name, array $params=[]) {
-        if ($name == 'users-get') $ep = [ 'GET', '/users' ];
-        else return parent::getEndpoint($name, $params);
-
-        if (count($params) > 0) $ep[1] = str_replace(array_keys($params), array_values($v), $ep[1]);
-        return $ep;
     }
 }
 
