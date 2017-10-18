@@ -4,15 +4,15 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "31bdb795f626933356c7827d3a69a2e0",
+    "content-hash": "b73f6171696f6d6ab99db9de5995b157",
     "packages": [
         {
             "name": "cfxmarkets/php-cfx-base",
-            "version": "v0.2.4",
+            "version": "v0.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cfxmarkets/php-cfx-base.git",
-                "reference": "31ab2a3a441dde64ded8f8905b4b57a73eee7468"
+                "reference": "0dc5a443faa4220dae09557492212aa263b16643"
             },
             "require": {
                 "kael-shipman/php-jsonapi-objects": "~0.8.0",
@@ -46,18 +46,18 @@
                 "cfx",
                 "cfxmarkets"
             ],
-            "time": "2017-10-12T19:26:53+00:00"
+            "time": "2017-10-18T21:47:20+00:00"
         },
         {
             "name": "cfxmarkets/php-sdk-base",
-            "version": "v0.2.2",
+            "version": "v0.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cfxmarkets/php-sdk-base.git",
-                "reference": "6e34237bedbe2becae44214034d83045174de015"
+                "reference": "17fe2f51ed7bba4e685e6d83d4e35aa929c90094"
             },
             "require": {
-                "cfxmarkets/php-cfx-base": "~0.2.3",
+                "cfxmarkets/php-cfx-base": "~0.3.0",
                 "php": ">=5.4.0"
             },
             "require-dev": {
@@ -90,15 +90,15 @@
                 "client",
                 "sdk"
             ],
-            "time": "2017-10-11T20:48:21+00:00"
+            "time": "2017-10-18T21:57:47+00:00"
         },
         {
             "name": "kael-shipman/php-jsonapi-objects",
-            "version": "v0.8.0",
+            "version": "v0.8.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cfxmarkets/php-jsonapi-objects.git",
-                "reference": "fb7f8bb641d4502d4febe90f6251d5d3b5521b94"
+                "reference": "92e109ab55146bc65f989e60ab36ec461fb3bd07"
             },
             "require": {
                 "kael-shipman/php-std-traits": "~3.2",
@@ -111,7 +111,10 @@
             "autoload": {
                 "psr-4": {
                     "KS\\JsonApi\\": "src/"
-                }
+                },
+                "files": [
+                    "src/Exceptions.php"
+                ]
             },
             "license": [
                 "MIT"
@@ -130,7 +133,7 @@
                 "json",
                 "jsonapi"
             ],
-            "time": "2017-10-06T20:51:09+00:00"
+            "time": "2017-10-14T02:22:11+00:00"
         },
         {
             "name": "kael-shipman/php-std-traits",

@@ -1,14 +1,14 @@
 <?php
 
-class ExchangeClientIntegrationTest extends \PHPUnit\Framework\TestCase {
+class BrokerageClientIntegrationTest extends \PHPUnit\Framework\TestCase {
     protected static $cnf;
 
     public static function setUpBeforeClass() {
-        self::$cnf = new \CFX\SDK\Exchange\Test\Config(__DIR__.'/config.php', __DIR__.'/config.local.php');
+        self::$cnf = new \CFX\SDK\Brokerage\Test\Config(__DIR__.'/config.php', __DIR__.'/config.local.php');
     }
 
     public function testAssetsClientCanGetAllAssets() {
-        $cfx = new \CFX\SDK\Exchange\Client(
+        $cfx = new \CFX\SDK\Brokerage\Client(
             self::$cnf->getBaseExchangeUri(),
             self::$cnf->getExchangeApiKey(),
             self::$cnf->getExchangeApiKeySecret(),
@@ -21,7 +21,7 @@ class ExchangeClientIntegrationTest extends \PHPUnit\Framework\TestCase {
     }
 
     public function testAssetsClientCanGetAssetById() {
-        $cfx = new \CFX\SDK\Exchange\Client(
+        $cfx = new \CFX\SDK\Brokerage\Client(
             self::$cnf->getBaseExchangeUri(),
             self::$cnf->getExchangeApiKey(),
             self::$cnf->getExchangeApiKeySecret(),
