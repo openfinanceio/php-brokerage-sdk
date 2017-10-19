@@ -2,7 +2,7 @@
 namespace CFX\SDK\Brokerage;
 
 class Client extends \CFX\SDK\BaseClient {
-    protected static $apiName = 'exchange';
+    protected static $apiName = 'brokerage';
     protected static $apiVersion = '2';
     protected $subclients = ['assets', 'assetIntents', 'orders', 'orderIntents', 'users'];
 

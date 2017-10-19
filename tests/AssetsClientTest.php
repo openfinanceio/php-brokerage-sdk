@@ -3,17 +3,17 @@
 class AssetsClientTest extends \PHPUnit\Framework\TestCase {
     protected static $testAsset = [
         'attributes' =>[
-        'issuer' => 'TEMP',
-        'name' => '141 South Meridian Street',
-        'statusCode' => '1',
-        'statusText' => 'open',
-        'description' => 'Test desc'
+            'issuer' => 'TEMP',
+            'name' => '141 South Meridian Street',
+            'statusCode' => '1',
+            'statusText' => 'open',
+            'description' => 'Test desc',
     ]];
 
 
     public function testAssetsClientComposesUriCorrectly() {
         $httpClient = new \CFX\Test\HttpClient();
-        $cfx = new \CFX\SDK\Brokerage\Client('https://null.cfxtrading.com/brokerage', '12345', 'abcde', $httpClient);
+        $cfx = new \CFX\SDK\Brokerage\Client('https://null.cfxtrading.com', '12345', 'abcde', $httpClient);
 
         $httpClient->setNextResponse(new \GuzzleHttp\Message\Response(
             200,
@@ -21,7 +21,6 @@ class AssetsClientTest extends \PHPUnit\Framework\TestCase {
             \GuzzleHttp\Stream\Stream::factory(json_encode([self::$testAsset]))
         ));
         $assets = $cfx->assets->get();
-        var_dump($assets);
         $r = $httpClient->getLastRequest();
         $this->assertEquals('https://null.cfxtrading.com/brokerage/v2/assets', $r->getUrl());
 

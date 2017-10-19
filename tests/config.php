@@ -4,8 +4,8 @@ return [
     'exec-profile' => 'test',
     'php-display-errors' => 1,
     'php-error-level' => E_ALL & ~E_NOTICE,
-    'exchange-base-uri' => 'https://sandbox.exchange.cfxtrading.com',
-    'exchange-api-key' => '7cae5809-5631-11e4-8141-003048d9078a',
-    'exchange-api-key-secret' => '',
+    'brokerage-base-uri' => 'https://sandbox.apis.cfxtrading.com',
+    'brokerage-api-key' => '6309e39018f50910bcd039d893831877',
+    'brokerage-api-key-secret' => '116019d3c417098d2f42b6fb247b00fb',
 ];
 
