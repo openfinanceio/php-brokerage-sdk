@@ -11,27 +11,27 @@ class BrokerageClientTest extends \PHPUnit\Framework\TestCase {
 
     public function testCanGetAssetsSubclient() {
         $cfx = new \CFX\SDK\Brokerage\Client('https://null.cfxtrading.com', '12345', 'abcde', new \GuzzleHttp\Client());
-        $this->assertInstanceOf('\\CFX\\SDK\\Brokerage\\AssetsClient', $cfx->assets);
+        $this->assertInstanceOf('\\CFX\\Persistence\\Rest\\GenericDatasource', $cfx->assets);
     }
 
 	public function testCanGetAssetIntentsSubclient() {
         $cfx = new \CFX\SDK\Brokerage\Client('https://null.cfxtrading.com', '12345', 'abcde', new \GuzzleHttp\Client());
-        $this->assertInstanceOf('\\CFX\\SDK\\Brokerage\\AssetIntentsClient', $cfx->assetIntents);
+        $this->assertInstanceOf('\\CFX\\Persistence\\Rest\\GenericDatasource', $cfx->assetIntents);
     }
 
     public function testCanGetOrdersSubclient() {
         $cfx = new \CFX\SDK\Brokerage\Client('https://null.cfxtrading.com', '12345', 'abcde', new \GuzzleHttp\Client());
-        $this->assertInstanceOf('\\CFX\\SDK\\Brokerage\\OrdersClient', $cfx->orders);
+        $this->assertInstanceOf('\\CFX\\Persistence\\Rest\\GenericDatasource', $cfx->orders);
     }
 
     public function testCanGetOrderIntentsSubclient() {
         $cfx = new \CFX\SDK\Brokerage\Client('https://null.cfxtrading.com', '12345', 'abcde', new \GuzzleHttp\Client());
-        $this->assertInstanceOf('\\CFX\\SDK\\Brokerage\\OrderIntentsClient', $cfx->orderIntents);
+        $this->assertInstanceOf('\\CFX\\Persistence\\Rest\\GenericDatasource', $cfx->orderIntents);
     }
 
     public function testCanGetUsersSubclient() {
         $cfx = new \CFX\SDK\Brokerage\Client('https://null.cfxtrading.com', '12345', 'abcde', new \GuzzleHttp\Client());
-        $this->assertInstanceOf('\\CFX\\SDK\\Brokerage\\UsersClient', $cfx->users);
+        $this->assertInstanceOf('\\CFX\\Persistence\\Rest\\GenericDatasource', $cfx->users);
     }
 }
 

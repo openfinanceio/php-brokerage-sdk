@@ -6,11 +6,11 @@ class Client extends \CFX\Persistence\Rest\AbstractDataContext {
     protected static $apiVersion = '2';
 
     protected function instantiateDatasource($name) {
-        if ($name == 'assets') return new AssetsClient($this);
-        if ($name == 'assetIntents') return new AssetIntentsClient($this);
-        if ($name == 'orders') return new OrdersClient($this);
-        if ($name == 'orderIntents') return new OrderIntentsClient($this);
-        if ($name == 'users') return new UsersClient($this);
+        if ($name == 'assets') return new \CFX\Persistence\Rest\GenericDatasource($this, $name, "\\CFX\\Exchange\\Asset");
+        if ($name == 'assetIntents') return new \CFX\Persistence\Rest\GenericDatasource($this, $name, "\\CFX\\Brokerage\\AssetIntent");
+        if ($name == 'orders') return new \CFX\Persistence\Rest\GenericDatasource($this, $name, "\\CFX\\Exchange\\Order");
+        if ($name == 'orderIntents') return new \CFX\Persistence\Rest\GenericDatasource($this, $name, "\\CFX\\Brokerage\\OrderIntent");
+        if ($name == 'users') return new \CFX\Persistence\Rest\GenericDatasource($this, $name, "\\CFX\\Brokerage\\User");
 
         return parent::instantiateDatasource($name);
     }

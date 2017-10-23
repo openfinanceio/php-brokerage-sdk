@@ -12,7 +12,7 @@
             "dist": {
                 "type": "path",
                 "url": "../php-jsonapi-objects",
-                "reference": "7f4fd36e62bdf2ef86a8b1837df736ddb5a6b744",
+                "reference": "b70d1eb93ba2da8b1dc97d45785da4b833146d6a",
                 "shasum": null
             },
             "require": {
@@ -58,7 +58,7 @@
             "dist": {
                 "type": "path",
                 "url": "../new-data-model/php-persistence",
-                "reference": "b3fdff78fe848bcb6988aaba49649e62d6fa1d5a",
+                "reference": "6b90eb47fc5a5a85dffa12ed2fb70bb2ce3cb1e8",
                 "shasum": null
             },
             "require": {
@@ -67,6 +67,7 @@
                 "php": ">=5.4"
             },
             "require-dev": {
+                "guzzlehttp/guzzle": "~5.0",
                 "phpunit/phpunit": ">=4.8.0"
             },
             "type": "library",
@@ -107,7 +108,7 @@
             "dist": {
                 "type": "path",
                 "url": "../new-data-model/php-public-models",
-                "reference": "1e02f061a529994ba77a048d18336bdeb90af7a7",
+                "reference": "5d53ede144f151a6106266b93e107517f9505546",
                 "shasum": null
             },
             "require": {
