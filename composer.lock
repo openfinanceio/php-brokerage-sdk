@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "cbec86d98274f1d594f3ee8439d69191",
+    "content-hash": "46339f0819196cde2c49dabc0d87b74c",
     "packages": [
         {
             "name": "cfxmarkets/php-jsonapi-objects",
@@ -57,7 +57,7 @@
             "version": "dev-dev-v2",
             "dist": {
                 "type": "path",
-                "url": "../new-data-model/php-persistence",
+                "url": "../php-persistence",
                 "reference": "6b90eb47fc5a5a85dffa12ed2fb70bb2ce3cb1e8",
                 "shasum": null
             },
@@ -107,7 +107,7 @@
             "version": "dev-dev-v2",
             "dist": {
                 "type": "path",
-                "url": "../new-data-model/php-public-models",
+                "url": "../php-public-models",
                 "reference": "5d53ede144f151a6106266b93e107517f9505546",
                 "shasum": null
             },

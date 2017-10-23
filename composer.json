@@ -29,11 +29,11 @@
     "repositories": [
         {
             "type": "path",
-            "url": "../new-data-model/php-persistence"
+            "url": "../php-persistence"
         },
         {
             "type": "path",
-            "url": "../new-data-model/php-public-models"
+            "url": "../php-public-models"
         },
         {
             "type": "path",
