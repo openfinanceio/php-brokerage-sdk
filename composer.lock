@@ -4,113 +4,33 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "58ce33b693f10919feda56415e9ede03",
+    "content-hash": "cbec86d98274f1d594f3ee8439d69191",
     "packages": [
         {
-            "name": "cfxmarkets/php-cfx-base",
-            "version": "v0.3.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/cfxmarkets/php-cfx-base.git",
-                "reference": "2661d2cdbde03fa86535b3aa9d86aa0262d43293"
-            },
-            "require": {
-                "kael-shipman/php-jsonapi-objects": "~0.8.0",
-                "kael-shipman/php-std-traits": "~3.2",
-                "php": ">=5.4.0"
-            },
-            "require-dev": {
-                "guzzlehttp/guzzle": "~5.0",
-                "phpunit/phpunit": ">=4.8.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "CFX\\": "src/"
-                },
-                "files": [
-                    "src/Exceptions.php"
-                ]
-            },
-            "license": [
-                "Proprietary"
-            ],
-            "authors": [
-                {
-                    "name": "CFX and contributors",
-                    "homepage": "https://github.com/cfxmarkets/php-cfx-base/graphs/contributors"
-                }
-            ],
-            "description": "A general set of base classes that other CFX libraries can extend",
-            "keywords": [
-                "cfx",
-                "cfxmarkets"
-            ],
-            "time": "2017-10-19T17:20:55+00:00"
-        },
-        {
-            "name": "cfxmarkets/php-sdk-base",
-            "version": "v0.2.4",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/cfxmarkets/php-sdk-base.git",
-                "reference": "4183930ffc143b63c81ab7d7575cc09ec4ac0012"
-            },
-            "require": {
-                "cfxmarkets/php-cfx-base": "~0.3.1",
-                "php": ">=5.4.0"
-            },
-            "require-dev": {
-                "guzzlehttp/guzzle": "~5.0",
-                "phpunit/phpunit": ">=4.8.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "CFX\\SDK\\": "src/"
-                },
-                "files": [
-                    "src/Exceptions.php"
-                ]
-            },
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "CFX and contributors",
-                    "homepage": "https://github.com/cfxmarkets/php-sdk-base/graphs/contributors"
-                }
-            ],
-            "description": "A base package for CFX Public SDKs",
-            "keywords": [
-                "api",
-                "cfx",
-                "cfxmarkets",
-                "client",
-                "sdk"
-            ],
-            "time": "2017-10-19T17:30:25+00:00"
-        },
-        {
-            "name": "kael-shipman/php-jsonapi-objects",
-            "version": "v0.8.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/cfxmarkets/php-jsonapi-objects.git",
-                "reference": "92e109ab55146bc65f989e60ab36ec461fb3bd07"
+            "name": "cfxmarkets/php-jsonapi-objects",
+            "version": "dev-dev-v2",
+            "dist": {
+                "type": "path",
+                "url": "../php-jsonapi-objects",
+                "reference": "7f4fd36e62bdf2ef86a8b1837df736ddb5a6b744",
+                "shasum": null
             },
             "require": {
                 "kael-shipman/php-std-traits": "~3.2",
-                "php": ">=5.4 <7"
+                "php": ">=5.4"
             },
             "require-dev": {
                 "phpunit/phpunit": "~4.8.0"
             },
             "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-dev-v2": "1.0.x-dev"
+                }
+            },
             "autoload": {
                 "psr-4": {
-                    "KS\\JsonApi\\": "src/"
+                    "CFX\\JsonApi\\": "src/"
                 },
                 "files": [
                     "src/Exceptions.php"
@@ -121,10 +41,8 @@
             ],
             "authors": [
                 {
-                    "name": "Kael Shipman",
-                    "email": "kael.shipman@gmail.com",
-                    "homepage": "https://colors.kaelshipman.me",
-                    "role": "Developer"
+                    "name": "CFX Markets and Contributors",
+                    "homepage": "https://github.com/cfxmarkets/php-jsonapi-objects/graphs/contributors"
                 }
             ],
             "description": "A class that provides a PHP implementation of JSON API objects. Note, this is not a protocol implementation, it is simply an implementation of classes as described by the [json-api spec](http://jsonapi.org/format/).",
@@ -132,8 +50,104 @@
                 "api",
                 "json",
                 "jsonapi"
+            ]
+        },
+        {
+            "name": "cfxmarkets/php-persistence",
+            "version": "dev-dev-v2",
+            "dist": {
+                "type": "path",
+                "url": "../new-data-model/php-persistence",
+                "reference": "b3fdff78fe848bcb6988aaba49649e62d6fa1d5a",
+                "shasum": null
+            },
+            "require": {
+                "cfxmarkets/php-jsonapi-objects": "1.0.x-dev",
+                "kael-shipman/php-std-traits": "~3.2.1",
+                "php": ">=5.4"
+            },
+            "require-dev": {
+                "phpunit/phpunit": ">=4.8.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-dev-v2": "0.1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "CFX\\Persistence\\": "src/"
+                },
+                "files": [
+                    "src/Exceptions.php"
+                ]
+            },
+            "license": [
+                "MIT"
             ],
-            "time": "2017-10-14T02:22:11+00:00"
+            "authors": [
+                {
+                    "name": "CFX and contributors",
+                    "homepage": "https://github.com/cfxmarkets/php-persistence/graphs/contributors"
+                }
+            ],
+            "description": "A library providing abstract implementations of various persistence layers based on JSON API relational resource concepts.",
+            "keywords": [
+                "context",
+                "database",
+                "datacontext",
+                "datasource",
+                "persistence"
+            ]
+        },
+        {
+            "name": "cfxmarkets/php-public-models",
+            "version": "dev-dev-v2",
+            "dist": {
+                "type": "path",
+                "url": "../new-data-model/php-public-models",
+                "reference": "1e02f061a529994ba77a048d18336bdeb90af7a7",
+                "shasum": null
+            },
+            "require": {
+                "cfxmarkets/php-jsonapi-objects": "1.0.x-dev",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "guzzlehttp/guzzle": "~5.0",
+                "phpunit/phpunit": "~4.8.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-dev-v2": "0.1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "CFX\\": "src/"
+                },
+                "files": []
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "CFX and contributors",
+                    "homepage": "https://github.com/cfxmarkets/php-api-service/graphs/contributors"
+                }
+            ],
+            "description": "This package provides all of CFX's public data objects.",
+            "keywords": [
+                "api",
+                "brokerage",
+                "cfx",
+                "data objects",
+                "exchange",
+                "framework"
+            ]
         },
         {
             "name": "kael-shipman/php-std-traits",
@@ -1397,7 +1411,11 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "cfxmarkets/php-persistence": 20,
+        "cfxmarkets/php-public-models": 20,
+        "cfxmarkets/php-jsonapi-objects": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

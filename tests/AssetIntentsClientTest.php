@@ -22,7 +22,7 @@ class AssetIntentsClientTest extends \PHPUnit\Framework\TestCase {
         ]];
 
     public function testAssetIntentsClientComposesUriCorrectly() {
-        $httpClient = new \CFX\Test\HttpClient();
+        $httpClient = new \CFX\Persistence\Test\HttpClient();
         $cfx = new \CFX\SDK\Brokerage\Client('https://null.cfxtrading.com', '12345', 'abcde', $httpClient);
 
             
@@ -38,7 +38,7 @@ class AssetIntentsClientTest extends \PHPUnit\Framework\TestCase {
         $httpClient->setNextResponse(new \GuzzleHttp\Message\Response(
             200,
             ['Content-Type' => 'application/json'],
-            \GuzzleHttp\Stream\Stream::factory(json_encode(self::$testAssetIntent))
+            \GuzzleHttp\Stream\Stream::factory(json_encode(['data' => self::$testAssetIntent]))
         ));
         $assetIntents = $cfx->assetIntents->get('id=FR008');
         $r = $httpClient->getLastRequest();

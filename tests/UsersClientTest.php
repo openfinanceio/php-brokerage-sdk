@@ -13,13 +13,13 @@ class UsersClientTest extends \PHPUnit\Framework\TestCase {
     ];
 
     public function testUsersClientComposesUriCorrectly() {
-        $httpClient = new \CFX\Test\HttpClient();
+        $httpClient = new \CFX\Persistence\Test\HttpClient();
         $cfx = new \CFX\SDK\Brokerage\Client('https://null.cfxtrading.com', '12345', 'abcde', $httpClient);
 
         $httpClient->setNextResponse(new \GuzzleHttp\Message\Response(
             200,
             ['Content-Type' => 'application/json'],
-            \GuzzleHttp\Stream\Stream::factory(json_encode([self::$testUser]))
+            \GuzzleHttp\Stream\Stream::factory(json_encode(['data' => [self::$testUser]]))
         ));
         $users = $cfx->users->get();
         $r = $httpClient->getLastRequest();
@@ -28,7 +28,7 @@ class UsersClientTest extends \PHPUnit\Framework\TestCase {
         $httpClient->setNextResponse(new \GuzzleHttp\Message\Response(
             200,
             ['Content-Type' => 'application/json'],
-            \GuzzleHttp\Stream\Stream::factory(json_encode(self::$testUser))
+            \GuzzleHttp\Stream\Stream::factory(json_encode(['data' => self::$testUser]))
         ));
         $users = $cfx->users->get('id=FR008');
         $r = $httpClient->getLastRequest();
