@@ -10,16 +10,16 @@
             "homepage": "https://github.com/cfxmarkets/php-broker-lib/graphs/contributors"
         }
     ],
+    "minimum-stability": "dev",
     "require" : {
         "php" : ">=5.4.0",
         "psr/http-message": "~1.0",
-        "cfxmarkets/php-persistence": "0.1.x-dev",
-        "cfxmarkets/php-public-models": "0.1.x-dev"
+        "cfxmarkets/php-persistence": "~0.1.0",
+        "cfxmarkets/php-public-models": "~0.1.0"
     },
     "require-dev" : {
         "phpunit/phpunit" : "~4.8.0",
-        "guzzlehttp/guzzle" : "~5.0",
-        "cfxmarkets/php-jsonapi-objects": "1.0.x-dev"
+        "guzzlehttp/guzzle" : "~5.0"
     },
     "autoload" : {
         "psr-4" : {
