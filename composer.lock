@@ -8,11 +8,11 @@
     "packages": [
         {
             "name": "cfxmarkets/php-jsonapi-objects",
-            "version": "dev-dev-v2",
+            "version": "1.0.9999999.9999999-dev",
             "dist": {
                 "type": "path",
                 "url": "../php-jsonapi-objects",
-                "reference": "b70d1eb93ba2da8b1dc97d45785da4b833146d6a",
+                "reference": "85b2544099227a360f3927830f79d0abbef16767",
                 "shasum": null
             },
             "require": {
@@ -24,9 +24,7 @@
             },
             "type": "library",
             "extra": {
-                "branch-alias": {
-                    "dev-dev-v2": "1.0.x-dev"
-                }
+                "branch-alias": []
             },
             "autoload": {
                 "psr-4": {
@@ -54,15 +52,15 @@
         },
         {
             "name": "cfxmarkets/php-persistence",
-            "version": "dev-dev-v2",
+            "version": "0.1.9999999.9999999-dev",
             "dist": {
                 "type": "path",
                 "url": "../php-persistence",
-                "reference": "6b90eb47fc5a5a85dffa12ed2fb70bb2ce3cb1e8",
+                "reference": "07f8f56d668de642af9ddd9796de64e6f0cf73d4",
                 "shasum": null
             },
             "require": {
-                "cfxmarkets/php-jsonapi-objects": "1.0.x-dev",
+                "cfxmarkets/php-jsonapi-objects": "~1.0.0",
                 "kael-shipman/php-std-traits": "~3.2.1",
                 "php": ">=5.4"
             },
@@ -73,7 +71,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-dev-v2": "0.1.x-dev"
+                    "dev-v0.1.x": "0.1.x-dev"
                 }
             },
             "autoload": {
@@ -108,11 +106,11 @@
             "dist": {
                 "type": "path",
                 "url": "../php-public-models",
-                "reference": "5d53ede144f151a6106266b93e107517f9505546",
+                "reference": "e45dc9cb7ec2579b57c325d1857b8548e56c3e3c",
                 "shasum": null
             },
             "require": {
-                "cfxmarkets/php-jsonapi-objects": "1.0.x-dev",
+                "cfxmarkets/php-jsonapi-objects": "~1.0.0",
                 "php": ">=5.4.0"
             },
             "require-dev": {
