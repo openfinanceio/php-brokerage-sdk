@@ -3,6 +3,7 @@
 ~*
 *.bak
 *.local
+*.local.php
 vendor
 *.DS_Store
 

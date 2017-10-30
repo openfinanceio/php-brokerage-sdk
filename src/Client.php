@@ -4,6 +4,7 @@ namespace CFX\SDK\Brokerage;
 class Client extends \CFX\Persistence\Rest\AbstractDataContext {
     protected static $apiName = 'brokerage';
     protected static $apiVersion = '2';
+    protected $oAuthToken;
 
     protected function instantiateDatasource($name) {
         if ($name == 'assets') return new \CFX\Persistence\Rest\GenericDatasource($this, $name, "\\CFX\\Exchange\\Asset");
@@ -13,6 +14,35 @@ class Client extends \CFX\Persistence\Rest\AbstractDataContext {
         if ($name == 'users') return new \CFX\Persistence\Rest\GenericDatasource($this, $name, "\\CFX\\Brokerage\\User");
 
         return parent::instantiateDatasource($name);
+    }
+
+    public function setOAuthToken($token = null) {
+        if ($token instanceof \CFX\Brokerage\OAuthToken) {
+            $token = $token->getId();
+        }
+        $this->oAuthToken = $token;
+    }
+
+    public function sendRequest($method, $endpoint, array $params = []) {
+        // TODO: Add certain exempt endpoints. Certain endpoints shouldn't have an OAuth
+        // token attached even if one is available. 
+        if ($this->oAuthToken) {
+            if (!array_key_exists('headers', $params)) $params['headers'] = [];
+
+            $set = false;
+            for($i = 0, $keys = array_keys($params['headers']), $ln = count($keys); $i < $ln; $i++) {
+                if (strtolower($keys[$i]) === 'authorization') {
+                    $set = true;
+                    break;
+                }
+            }
+
+            if (!$set) {
+                $params['headers']['Authorization'] = "Bearer $this->oAuthToken";
+            }
+        }
+
+        return parent::sendRequest($method, $endpoint, $params);
     }
 }
 

@@ -47,5 +47,10 @@
             "type": "git",
             "url": "https://github.com/cfxmarkets/php-jsonapi-objects.git"
         }
-    ]
+    ],
+    "extra": {
+        "branch-alias": {
+            "dev-dev-v2": "v1.0.x-dev"
+        }
+    }
 }
