@@ -1,5 +1,5 @@
 {
-    "name": "cfxmarkets/php-broker-lib",
+    "name": "cfxmarkets/php-brokerage-sdk",
     "description": "A public PHP api library to access the CFX Markets brokerage api",
     "type": "library",
     "keywords": [ "cfx", "api", "client" ],
