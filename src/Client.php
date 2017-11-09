@@ -7,12 +7,15 @@ class Client extends \CFX\Persistence\Rest\AbstractDataContext {
     protected $oAuthToken;
 
     protected function instantiateDatasource($name) {
-        if ($name == 'assets') return new \CFX\Persistence\Rest\GenericDatasource($this, $name, "\\CFX\\Exchange\\Asset");
-        if ($name == 'assetIntents') return new \CFX\Persistence\Rest\GenericDatasource($this, $name, "\\CFX\\Brokerage\\AssetIntent");
-        if ($name == 'orders') return new \CFX\Persistence\Rest\GenericDatasource($this, $name, "\\CFX\\Exchange\\Order");
-        if ($name == 'orderIntents') return new \CFX\Persistence\Rest\GenericDatasource($this, $name, "\\CFX\\Brokerage\\OrderIntent");
-        if ($name == 'users') return new UsersDatasource($this);
-        if ($name == 'oauthTokens') return new \CFX\Persistence\Rest\GenericDatasource($this, $name, "\\CFX\\Brokerage\\OAuthToken");
+        if ($name === 'assets') return new \CFX\Persistence\Rest\GenericDatasource($this, "assets", "\\CFX\\Exchange\\Asset");
+        if ($name === 'assetIntents') return new \CFX\Persistence\Rest\GenericDatasource($this, "asset-intents", "\\CFX\\Brokerage\\AssetIntent");
+        if ($name === 'orders') return new \CFX\Persistence\Rest\GenericDatasource($this, "orders", "\\CFX\\Exchange\\Order");
+        if ($name === 'orderIntents') return new \CFX\Persistence\Rest\GenericDatasource($this, "order-intents", "\\CFX\\Brokerage\\OrderIntent");
+        if ($name === 'users') return new UsersDatasource($this);
+        if ($name === 'oauthTokens') return new \CFX\Persistence\Rest\GenericDatasource($this, "oauth-tokens", "\\CFX\\Brokerage\\OAuthToken");
+        if ($name === 'legalEntities') return new \CFX\Persistence\Rest\GenericDatasource($this, "legal-entities", "\\CFX\\Brokerage\\LegalEntity");
+        if ($name === 'addresses') return new \CFX\Persistence\Rest\GenericDatasource($this, "addresses", "\\CFX\\Brokerage\\Address");
+        if ($name === 'documents') return new \CFX\Persistence\Rest\GenericDatasource($this, "documents", "\\CFX\\Brokerage\\Document");
 
         return parent::instantiateDatasource($name);
     }
@@ -57,6 +60,25 @@ class Client extends \CFX\Persistence\Rest\AbstractDataContext {
     }
 
     protected function requestRequiresOAuth($method, $endpoint, array $params = []) {
+        $oauthEndpoints = [
+            "/order-intents",
+            "/orders",
+            "/legal-entities",
+            "/addresses",
+            "/documents"
+        ];
+
+        foreach($oauthEndpoints as $e) {
+            if (substr($endpoint, 0, strlen($e)) === $e) {
+                return true;
+            }
+        }
+
+        $e = "/users";
+        if (substr($endpoint, 0, strlen($e)) === $e && in_array($method, ["GET", "PATCH"])) {
+            return true;
+        }
+
         return false;
     }
 }
