@@ -16,6 +16,7 @@ class Client extends \CFX\Persistence\Rest\AbstractDataContext {
         if ($name === 'legalEntities') return new \CFX\Persistence\Rest\GenericDatasource($this, "legal-entities", "\\CFX\\Brokerage\\LegalEntity");
         if ($name === 'addresses') return new \CFX\Persistence\Rest\GenericDatasource($this, "addresses", "\\CFX\\Brokerage\\Address");
         if ($name === 'documents') return new \CFX\Persistence\Rest\GenericDatasource($this, "documents", "\\CFX\\Brokerage\\Document");
+        if ($name === 'bankAccounts') return new \CFX\Persistence\Rest\GenericDatasource($this, "bank-accounts", "\\CFX\\Brokerage\\BankAccount");
 
         return parent::instantiateDatasource($name);
     }
@@ -65,7 +66,8 @@ class Client extends \CFX\Persistence\Rest\AbstractDataContext {
             "/orders",
             "/legal-entities",
             "/addresses",
-            "/documents"
+            "/documents",
+            "/bank-accounts",
         ];
 
         foreach($oauthEndpoints as $e) {
