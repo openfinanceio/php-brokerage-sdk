@@ -4,15 +4,15 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "f1a07411dea508570ccc5d3060b2e86c",
+    "content-hash": "9000c2315d9f0aa26ea03724d2fe80b4",
     "packages": [
         {
             "name": "cfxmarkets/php-jsonapi-objects",
-            "version": "1.0.9999999.9999999-dev",
+            "version": "1.1.9999999.9999999-dev",
             "dist": {
                 "type": "path",
                 "url": "../php-jsonapi-objects",
-                "reference": "85b2544099227a360f3927830f79d0abbef16767",
+                "reference": "7be68959cb1ade77678c1f8699da602162696159",
                 "shasum": null
             },
             "require": {
@@ -24,7 +24,9 @@
             },
             "type": "library",
             "extra": {
-                "branch-alias": []
+                "branch-alias": {
+                    "dev-v1.1.x": "1.1.x-dev"
+                }
             },
             "autoload": {
                 "psr-4": {
@@ -56,16 +58,17 @@
             "dist": {
                 "type": "path",
                 "url": "../php-persistence",
-                "reference": "07f8f56d668de642af9ddd9796de64e6f0cf73d4",
+                "reference": "cbb87961d484c324ac1486528935a6e4cff51897",
                 "shasum": null
             },
             "require": {
-                "cfxmarkets/php-jsonapi-objects": "~1.0.0",
+                "cfxmarkets/php-jsonapi-objects": "~1.1.0",
                 "kael-shipman/php-std-traits": "~3.2.1",
                 "php": ">=5.4"
             },
             "require-dev": {
                 "guzzlehttp/guzzle": "~5.0",
+                "phpdocumentor/phpdocumentor": "~2.9",
                 "phpunit/phpunit": ">=4.8.0"
             },
             "type": "library",
@@ -102,15 +105,15 @@
         },
         {
             "name": "cfxmarkets/php-public-models",
-            "version": "dev-dev-v2",
+            "version": "1.0.9999999.9999999-dev",
             "dist": {
                 "type": "path",
                 "url": "../php-public-models",
-                "reference": "e45dc9cb7ec2579b57c325d1857b8548e56c3e3c",
+                "reference": "185a7631d39e37fa598d50019cb3cc36f5ab5b64",
                 "shasum": null
             },
             "require": {
-                "cfxmarkets/php-jsonapi-objects": "~1.0.0",
+                "cfxmarkets/php-jsonapi-objects": "~1.1.0",
                 "php": ">=5.4.0"
             },
             "require-dev": {
@@ -120,7 +123,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-dev-v2": "0.1.x-dev"
+                    "dev-v1.x": "v1.x-dev"
                 }
             },
             "autoload": {
@@ -128,6 +131,11 @@
                     "CFX\\": "src/"
                 },
                 "files": []
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "CFX\\": "tests/"
+                }
             },
             "license": [
                 "MIT"
@@ -508,12 +516,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpspec/prophecy.git",
-                "reference": "c9b8c6088acd19d769d4cc0ffa60a9fe34344bd6"
+                "reference": "ddd9d7ffff1d7c3acd1a79a8e21d5ee5ea7beace"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/c9b8c6088acd19d769d4cc0ffa60a9fe34344bd6",
-                "reference": "c9b8c6088acd19d769d4cc0ffa60a9fe34344bd6",
+                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/ddd9d7ffff1d7c3acd1a79a8e21d5ee5ea7beace",
+                "reference": "ddd9d7ffff1d7c3acd1a79a8e21d5ee5ea7beace",
                 "shasum": ""
             },
             "require": {
@@ -525,7 +533,7 @@
             },
             "require-dev": {
                 "phpspec/phpspec": "^2.5|^3.2",
-                "phpunit/phpunit": "^4.8 || ^5.6.5"
+                "phpunit/phpunit": "^4.8.35 || ^5.7"
             },
             "type": "library",
             "extra": {
@@ -563,7 +571,7 @@
                 "spy",
                 "stub"
             ],
-            "time": "2017-09-04T11:05:03+00:00"
+            "time": "2017-11-07T12:00:44+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -626,53 +634,6 @@
                 "xunit"
             ],
             "time": "2015-10-06T15:47:00+00:00"
-        },
-        {
-            "name": "phpunit/php-file-iterator",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/sebastianbergmann/php-file-iterator.git",
-                "reference": "3cc8f69b3028d0f96a9078e6295d86e9bf019be5"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-file-iterator/zipball/3cc8f69b3028d0f96a9078e6295d86e9bf019be5",
-                "reference": "3cc8f69b3028d0f96a9078e6295d86e9bf019be5",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.3"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.4.x-dev"
-                }
-            },
-            "autoload": {
-                "classmap": [
-                    "src/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Sebastian Bergmann",
-                    "email": "sb@sebastian-bergmann.de",
-                    "role": "lead"
-                }
-            ],
-            "description": "FilterIterator implementation that filters files based on a list of suffixes.",
-            "homepage": "https://github.com/sebastianbergmann/php-file-iterator/",
-            "keywords": [
-                "filesystem",
-                "iterator"
-            ],
-            "time": "2016-10-03T07:40:28+00:00"
         },
         {
             "name": "phpunit/php-text-template",
@@ -1365,12 +1326,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
-                "reference": "842fb6df22180244b4c65935ce1a88d324e5ff9e"
+                "reference": "d819bf267e901727141fe828ae888486fd21236e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/842fb6df22180244b4c65935ce1a88d324e5ff9e",
-                "reference": "842fb6df22180244b4c65935ce1a88d324e5ff9e",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/d819bf267e901727141fe828ae888486fd21236e",
+                "reference": "d819bf267e901727141fe828ae888486fd21236e",
                 "shasum": ""
             },
             "require": {
@@ -1406,7 +1367,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-            "time": "2017-10-05T14:38:30+00:00"
+            "time": "2017-11-05T15:25:56+00:00"
         }
     ],
     "aliases": [],
