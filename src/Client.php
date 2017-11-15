@@ -1,11 +1,35 @@
 <?php
 namespace CFX\SDK\Brokerage;
 
+/**
+ * The Brokerage API Client
+ *
+ * This is a CFX REST DataContext derivative class, meaning that it serves datasources on request for various
+ * types of resources and then ferries requests from those datasources off to the Brokreage API via an HTTP Client.
+ */
 class Client extends \CFX\Persistence\Rest\AbstractDataContext {
+    /**
+     * @var string The name of the API this client interfaces
+     */
     protected static $apiName = 'brokerage';
+
+    /**
+     * @var string The version of the API this client interfaces
+     */
     protected static $apiVersion = '2';
+
+    /**
+     * @var string An OAuth token to use as authentication for requests that require it
+     */
     protected $oAuthToken;
 
+    /**
+     * @inheritdoc
+     *
+     * Note that most of the datasources returned here are simple REST `GenericDatasource`s. `UsersDatasource` is
+     * the only exception, and this is to prevent the SDK from needlessly seeking OAuth token objects that it
+     * won't have access to.
+     */
     protected function instantiateDatasource($name) {
         if ($name === 'assets') return new \CFX\Persistence\Rest\GenericDatasource($this, "assets", "\\CFX\\Exchange\\Asset");
         if ($name === 'assetIntents') return new \CFX\Persistence\Rest\GenericDatasource($this, "asset-intents", "\\CFX\\Brokerage\\AssetIntent");
@@ -33,6 +57,14 @@ class Client extends \CFX\Persistence\Rest\AbstractDataContext {
         $this->oAuthToken = $token;
     }
 
+    /**
+     * Send a request to the Brokerage REST API
+     *
+     * Note that this method is responsible for knowing which endpoints require OAuth authorization and for
+     * providing that authorization.
+     * 
+     * {@inheritdoc}
+     */
     public function sendRequest($method, $endpoint, array $params = []) {
         if ($this->requestRequiresOAuth($method, $endpoint, $params)) {
             if ($this->oAuthToken) {
@@ -60,6 +92,13 @@ class Client extends \CFX\Persistence\Rest\AbstractDataContext {
         return parent::sendRequest($method, $endpoint, $params);
     }
 
+    /**
+     * Determines whether the given request requires an OAuth token for authorization
+     *
+     * @param string $method The HTTP method of the request
+     * @param string $endpoint The endpoint for the request
+     * @param array $params An optional hash of request parameters formatted for a Guzzle HTTP Client request
+     */
     protected function requestRequiresOAuth($method, $endpoint, array $params = []) {
         $oauthEndpoints = [
             "/order-intents",
