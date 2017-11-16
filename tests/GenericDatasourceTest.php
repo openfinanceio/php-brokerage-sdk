@@ -73,7 +73,7 @@ class GenericDatasourceTest extends \PHPUnit\Framework\TestCase {
         ));
         $assetIntents = $cfx->assetIntents->get();
         $r = $httpClient->getLastRequest();
-        $this->assertEquals('https://null.cfxtrading.com/brokerage/v2/assetIntents', $r->getUrl());
+        $this->assertEquals('https://null.cfxtrading.com/brokerage/v2/asset-intents', $r->getUrl());
 
         $httpClient->setNextResponse(new \GuzzleHttp\Message\Response(
             200,
@@ -82,7 +82,7 @@ class GenericDatasourceTest extends \PHPUnit\Framework\TestCase {
         ));
         $assetIntents = $cfx->assetIntents->get('id=FR008');
         $r = $httpClient->getLastRequest();
-        $this->assertEquals('https://null.cfxtrading.com/brokerage/v2/assetIntents/FR008', $r->getUrl());
+        $this->assertEquals('https://null.cfxtrading.com/brokerage/v2/asset-intents/FR008', $r->getUrl());
     }
 
     public function testAssetsClientComposesUriCorrectly() {
@@ -117,9 +117,11 @@ class GenericDatasourceTest extends \PHPUnit\Framework\TestCase {
             ['Content-Type' => 'application/json'],
             \GuzzleHttp\Stream\Stream::factory(json_encode(['data' => [self::$testOrderIntent]]))
         ));
+
+        $cfx->setOAuthToken('12345');
         $orderIntents = $cfx->orderIntents->get();
         $r = $httpClient->getLastRequest();
-        $this->assertEquals('https://null.cfxtrading.com/brokerage/v2/orderIntents', $r->getUrl());
+        $this->assertEquals('https://null.cfxtrading.com/brokerage/v2/order-intents', $r->getUrl());
 
         $httpClient->setNextResponse(new \GuzzleHttp\Message\Response(
             200,
@@ -128,7 +130,7 @@ class GenericDatasourceTest extends \PHPUnit\Framework\TestCase {
         ));
         $orderIntents = $cfx->orderIntents->get('id=OR008');
         $r = $httpClient->getLastRequest();
-        $this->assertEquals('https://null.cfxtrading.com/brokerage/v2/orderIntents/OR008', $r->getUrl());
+        $this->assertEquals('https://null.cfxtrading.com/brokerage/v2/order-intents/OR008', $r->getUrl());
     }
 
     public function testOrdersClientComposesUriCorrectly() {
@@ -140,6 +142,9 @@ class GenericDatasourceTest extends \PHPUnit\Framework\TestCase {
             ['Content-Type' => 'application/json'],
             \GuzzleHttp\Stream\Stream::factory(json_encode(['data' => [self::$testOrder]]))
         ));
+
+        $cfx->setOAuthToken('12345');
+
         $orders = $cfx->orders->get();
         $r = $httpClient->getLastRequest();
         $this->assertEquals('https://null.cfxtrading.com/brokerage/v2/orders', $r->getUrl());
@@ -163,6 +168,9 @@ class GenericDatasourceTest extends \PHPUnit\Framework\TestCase {
             ['Content-Type' => 'application/json'],
             \GuzzleHttp\Stream\Stream::factory(json_encode(['data' => [self::$testUser]]))
         ));
+
+        $cfx->setOAuthToken('12345');
+
         $users = $cfx->users->get();
         $r = $httpClient->getLastRequest();
         $this->assertEquals('https://null.cfxtrading.com/brokerage/v2/users', $r->getUrl());

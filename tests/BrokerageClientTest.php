@@ -31,7 +31,7 @@ class BrokerageClientTest extends \PHPUnit\Framework\TestCase {
 
     public function testCanGetUsersSubclient() {
         $cfx = new \CFX\SDK\Brokerage\Client('https://null.cfxtrading.com', '12345', 'abcde', new \GuzzleHttp\Client());
-        $this->assertInstanceOf('\\CFX\\Persistence\\Rest\\GenericDatasource', $cfx->users);
+        $this->assertInstanceOf('\\CFX\\SDK\\Brokerage\\UsersDatasource', $cfx->users);
     }
 }
 
