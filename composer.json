@@ -2,7 +2,7 @@
     "name": "cfxmarkets/php-brokerage-sdk",
     "description": "A public PHP api library to access the CFX Markets brokerage api",
     "type": "library",
-    "keywords": [ "cfx", "api", "client" ],
+    "keywords": [ "cfx", "api", "client", "brokerage" ],
     "license": "MIT",
     "authors": [
         {
@@ -10,11 +10,12 @@
             "homepage": "https://github.com/cfxmarkets/php-broker-lib/graphs/contributors"
         }
     ],
+    "minimum-stability": "dev",
     "require" : {
         "php" : ">=5.4.0",
         "psr/http-message": "~1.0",
-        "cfxmarkets/php-cfx-base": "~0.2.4",
-        "cfxmarkets/php-sdk-base": "~0.2.2"
+        "cfxmarkets/php-persistence": "~0.1.0",
+        "cfxmarkets/php-public-models": "~1.0.0"
     },
     "require-dev" : {
         "phpunit/phpunit" : "~4.8.0",
@@ -27,12 +28,16 @@
     },
     "repositories": [
         {
-            "type": "git",
-            "url": "https://github.com/cfxmarkets/php-cfx-base.git"
+            "type": "path",
+            "url": "../php-persistence"
         },
         {
-            "type": "git",
-            "url": "https://github.com/cfxmarkets/php-sdk-base.git"
+            "type": "path",
+            "url": "../php-public-models"
+        },
+        {
+            "type": "path",
+            "url": "../php-jsonapi-objects"
         },
         {
             "type": "git",
@@ -42,5 +47,10 @@
             "type": "git",
             "url": "https://github.com/cfxmarkets/php-jsonapi-objects.git"
         }
-    ]
+    ],
+    "extra": {
+        "branch-alias": {
+            "dev-v1.0.x": "v1.0.x-dev"
+        }
+    }
 }
