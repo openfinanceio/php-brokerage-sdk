@@ -4,15 +4,15 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "9000c2315d9f0aa26ea03724d2fe80b4",
+    "content-hash": "e52d5058e552e616837cff3336f79389",
     "packages": [
         {
             "name": "cfxmarkets/php-jsonapi-objects",
-            "version": "1.1.9999999.9999999-dev",
+            "version": "1.2.9999999.9999999-dev",
             "dist": {
                 "type": "path",
                 "url": "../php-jsonapi-objects",
-                "reference": "7be68959cb1ade77678c1f8699da602162696159",
+                "reference": "4d9c67f3197f87a4672b19bb2cab97df7594b947",
                 "shasum": null
             },
             "require": {
@@ -25,7 +25,8 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-v1.1.x": "1.1.x-dev"
+                    "dev-v1.1.x": "1.1.x-dev",
+                    "dev-v1.2.x": "1.2.x-dev"
                 }
             },
             "autoload": {
@@ -58,16 +59,16 @@
             "dist": {
                 "type": "path",
                 "url": "../php-persistence",
-                "reference": "cbb87961d484c324ac1486528935a6e4cff51897",
+                "reference": "63261ba172853759a0a9f645f56697b92c11bb3e",
                 "shasum": null
             },
             "require": {
-                "cfxmarkets/php-jsonapi-objects": "~1.1.0",
+                "cfxmarkets/php-jsonapi-objects": "~1.1",
+                "guzzlehttp/guzzle": "~5.0",
                 "kael-shipman/php-std-traits": "~3.2.1",
                 "php": ">=5.4"
             },
             "require-dev": {
-                "guzzlehttp/guzzle": "~5.0",
                 "phpdocumentor/phpdocumentor": "~2.9",
                 "phpunit/phpunit": ">=4.8.0"
             },
@@ -105,25 +106,27 @@
         },
         {
             "name": "cfxmarkets/php-public-models",
-            "version": "1.0.9999999.9999999-dev",
+            "version": "1.1.9999999.9999999-dev",
             "dist": {
                 "type": "path",
                 "url": "../php-public-models",
-                "reference": "185a7631d39e37fa598d50019cb3cc36f5ab5b64",
+                "reference": "2691613ca818d32eb000e5cee4675c2e29308d3b",
                 "shasum": null
             },
             "require": {
-                "cfxmarkets/php-jsonapi-objects": "~1.1.0",
+                "cfxmarkets/php-jsonapi-objects": "~1.1",
                 "php": ">=5.4.0"
             },
             "require-dev": {
                 "guzzlehttp/guzzle": "~5.0",
+                "phpdocumentor/phpdocumentor": "~2.9",
                 "phpunit/phpunit": "~4.8.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-v1.x": "v1.x-dev"
+                    "dev-v1.0.x": "v1.0.x-dev",
+                    "dev-v1.1.x": "v1.1.x-dev"
                 }
             },
             "autoload": {
@@ -155,157 +158,6 @@
                 "exchange",
                 "framework"
             ]
-        },
-        {
-            "name": "kael-shipman/php-std-traits",
-            "version": "v3.2.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/cfxmarkets/php-std-traits.git",
-                "reference": "996327e11ffbae9ac06b918d9a78e109d14a6a00"
-            },
-            "require": {
-                "php": ">=5.4.0 < 7"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "~4.8.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "KS\\": "src/"
-                },
-                "files": [
-                    "src/Exceptions.php"
-                ]
-            },
-            "autoload-dev": {
-                "psr-4": {
-                    "Test\\": "tests/classes"
-                }
-            },
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Kael Shipman",
-                    "email": "kael.shipman@gmail.com",
-                    "homepage": "https://colors.kaelshipman.me",
-                    "role": "Developer"
-                }
-            ],
-            "description": "An assortment of traits, exceptions and minor classes that help to implement standard PHP interfaces like ArrayAccess, Iterator, etc., as well as a few other useful features.",
-            "keywords": [
-                "traits"
-            ],
-            "time": "2017-10-16T04:03:38+00:00"
-        },
-        {
-            "name": "psr/http-message",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/php-fig/http-message.git",
-                "reference": "f6561bf28d520154e4b0ec72be95418abe6d9363"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/http-message/zipball/f6561bf28d520154e4b0ec72be95418abe6d9363",
-                "reference": "f6561bf28d520154e4b0ec72be95418abe6d9363",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Psr\\Http\\Message\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "PHP-FIG",
-                    "homepage": "http://www.php-fig.org/"
-                }
-            ],
-            "description": "Common interface for HTTP messages",
-            "homepage": "https://github.com/php-fig/http-message",
-            "keywords": [
-                "http",
-                "http-message",
-                "psr",
-                "psr-7",
-                "request",
-                "response"
-            ],
-            "time": "2016-08-06T14:39:51+00:00"
-        }
-    ],
-    "packages-dev": [
-        {
-            "name": "doctrine/instantiator",
-            "version": "1.0.x-dev",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/doctrine/instantiator.git",
-                "reference": "8e884e78f9f0eb1329e445619e04456e64d8051d"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/instantiator/zipball/8e884e78f9f0eb1329e445619e04456e64d8051d",
-                "reference": "8e884e78f9f0eb1329e445619e04456e64d8051d",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3,<8.0-DEV"
-            },
-            "require-dev": {
-                "athletic/athletic": "~0.1.8",
-                "ext-pdo": "*",
-                "ext-phar": "*",
-                "phpunit/phpunit": "~4.0",
-                "squizlabs/php_codesniffer": "~2.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Doctrine\\Instantiator\\": "src/Doctrine/Instantiator/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Marco Pivetta",
-                    "email": "ocramius@gmail.com",
-                    "homepage": "http://ocramius.github.com/"
-                }
-            ],
-            "description": "A small, lightweight utility to instantiate objects in PHP without invoking their constructors",
-            "homepage": "https://github.com/doctrine/instantiator",
-            "keywords": [
-                "constructor",
-                "instantiate"
-            ],
-            "time": "2015-06-14T21:17:01+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",
@@ -460,6 +312,203 @@
                 "stream"
             ],
             "time": "2016-04-13T16:32:01+00:00"
+        },
+        {
+            "name": "kael-shipman/php-std-traits",
+            "version": "v3.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/cfxmarkets/php-std-traits.git",
+                "reference": "996327e11ffbae9ac06b918d9a78e109d14a6a00"
+            },
+            "require": {
+                "php": ">=5.4.0 < 7"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.8.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "KS\\": "src/"
+                },
+                "files": [
+                    "src/Exceptions.php"
+                ]
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Test\\": "tests/classes"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kael Shipman",
+                    "email": "kael.shipman@gmail.com",
+                    "homepage": "https://colors.kaelshipman.me",
+                    "role": "Developer"
+                }
+            ],
+            "description": "An assortment of traits, exceptions and minor classes that help to implement standard PHP interfaces like ArrayAccess, Iterator, etc., as well as a few other useful features.",
+            "keywords": [
+                "traits"
+            ],
+            "time": "2017-10-16T04:03:38+00:00"
+        },
+        {
+            "name": "psr/http-message",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/http-message.git",
+                "reference": "f6561bf28d520154e4b0ec72be95418abe6d9363"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/http-message/zipball/f6561bf28d520154e4b0ec72be95418abe6d9363",
+                "reference": "f6561bf28d520154e4b0ec72be95418abe6d9363",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Psr\\Http\\Message\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "http://www.php-fig.org/"
+                }
+            ],
+            "description": "Common interface for HTTP messages",
+            "homepage": "https://github.com/php-fig/http-message",
+            "keywords": [
+                "http",
+                "http-message",
+                "psr",
+                "psr-7",
+                "request",
+                "response"
+            ],
+            "time": "2016-08-06T14:39:51+00:00"
+        },
+        {
+            "name": "react/promise",
+            "version": "2.x-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/reactphp/promise.git",
+                "reference": "179520ec0b25cf4c742d9653be9f4964d64d4a6e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/reactphp/promise/zipball/179520ec0b25cf4c742d9653be9f4964d64d4a6e",
+                "reference": "179520ec0b25cf4c742d9653be9f4964d64d4a6e",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.8"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "React\\Promise\\": "src/"
+                },
+                "files": [
+                    "src/functions_include.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jan Sorgalla",
+                    "email": "jsorgalla@gmail.com"
+                }
+            ],
+            "description": "A lightweight implementation of CommonJS Promises/A for PHP",
+            "keywords": [
+                "promise",
+                "promises"
+            ],
+            "time": "2017-09-19T13:02:44+00:00"
+        }
+    ],
+    "packages-dev": [
+        {
+            "name": "doctrine/instantiator",
+            "version": "1.0.x-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/doctrine/instantiator.git",
+                "reference": "8e884e78f9f0eb1329e445619e04456e64d8051d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/doctrine/instantiator/zipball/8e884e78f9f0eb1329e445619e04456e64d8051d",
+                "reference": "8e884e78f9f0eb1329e445619e04456e64d8051d",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3,<8.0-DEV"
+            },
+            "require-dev": {
+                "athletic/athletic": "~0.1.8",
+                "ext-pdo": "*",
+                "ext-phar": "*",
+                "phpunit/phpunit": "~4.0",
+                "squizlabs/php_codesniffer": "~2.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Doctrine\\Instantiator\\": "src/Doctrine/Instantiator/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Marco Pivetta",
+                    "email": "ocramius@gmail.com",
+                    "homepage": "http://ocramius.github.com/"
+                }
+            ],
+            "description": "A small, lightweight utility to instantiate objects in PHP without invoking their constructors",
+            "homepage": "https://github.com/doctrine/instantiator",
+            "keywords": [
+                "constructor",
+                "instantiate"
+            ],
+            "time": "2015-06-14T21:17:01+00:00"
         },
         {
             "name": "phpdocumentor/reflection-docblock",
@@ -634,6 +683,53 @@
                 "xunit"
             ],
             "time": "2015-10-06T15:47:00+00:00"
+        },
+        {
+            "name": "phpunit/php-file-iterator",
+            "version": "1.4.x-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sebastianbergmann/php-file-iterator.git",
+                "reference": "63304292f3cf89b2382b90dd7a2abf9e0ba232f9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-file-iterator/zipball/63304292f3cf89b2382b90dd7a2abf9e0ba232f9",
+                "reference": "63304292f3cf89b2382b90dd7a2abf9e0ba232f9",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.4.x-dev"
+                }
+            },
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Sebastian Bergmann",
+                    "email": "sb@sebastian-bergmann.de",
+                    "role": "lead"
+                }
+            ],
+            "description": "FilterIterator implementation that filters files based on a list of suffixes.",
+            "homepage": "https://github.com/sebastianbergmann/php-file-iterator/",
+            "keywords": [
+                "filesystem",
+                "iterator"
+            ],
+            "time": "2017-10-30T04:21:02+00:00"
         },
         {
             "name": "phpunit/php-text-template",
@@ -901,52 +997,6 @@
                 "xunit"
             ],
             "time": "2015-10-02T06:51:40+00:00"
-        },
-        {
-            "name": "react/promise",
-            "version": "2.x-dev",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/reactphp/promise.git",
-                "reference": "179520ec0b25cf4c742d9653be9f4964d64d4a6e"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/reactphp/promise/zipball/179520ec0b25cf4c742d9653be9f4964d64d4a6e",
-                "reference": "179520ec0b25cf4c742d9653be9f4964d64d4a6e",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.4.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "~4.8"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "React\\Promise\\": "src/"
-                },
-                "files": [
-                    "src/functions_include.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Jan Sorgalla",
-                    "email": "jsorgalla@gmail.com"
-                }
-            ],
-            "description": "A lightweight implementation of CommonJS Promises/A for PHP",
-            "keywords": [
-                "promise",
-                "promises"
-            ],
-            "time": "2017-09-19T13:02:44+00:00"
         },
         {
             "name": "sebastian/comparator",

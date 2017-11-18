@@ -42,10 +42,10 @@ class GenericDatasourceTest extends \PHPUnit\Framework\TestCase {
     
     protected static $testOrder = [
         'attributes' => [
-            'numShares' => '1',
+            'lotSize' => '1',
             'priceHigh' => '12',
             'priceLow' => '11',
-            'type' => 'sell',
+            'side' => 'sell',
         ],
     ];
     
