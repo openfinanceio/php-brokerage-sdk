@@ -15,7 +15,7 @@
         "php" : ">=5.4.0",
         "psr/http-message": "~1.0",
         "cfxmarkets/php-persistence": "~0.1.0",
-        "cfxmarkets/php-public-models": "~1.0.0"
+        "cfxmarkets/php-public-models": "~1.0"
     },
     "require-dev" : {
         "phpunit/phpunit" : "~4.8.0",
