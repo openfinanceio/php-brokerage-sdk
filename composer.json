@@ -10,7 +10,6 @@
             "homepage": "https://github.com/cfxmarkets/php-broker-lib/graphs/contributors"
         }
     ],
-    "minimum-stability": "dev",
     "require" : {
         "php" : ">=5.4.0",
         "psr/http-message": "~1.0",
@@ -28,29 +27,26 @@
     },
     "repositories": [
         {
-            "type": "path",
-            "url": "../php-persistence"
-        },
-        {
-            "type": "path",
-            "url": "../php-public-models"
-        },
-        {
-            "type": "path",
-            "url": "../php-jsonapi-objects"
+            "type": "git",
+            "url": "https://github.com/cfxmarkets/php-persistence.git"
         },
         {
             "type": "git",
-            "url": "https://github.com/cfxmarkets/php-std-traits.git"
+            "url": "https://github.com/cfxmarkets/php-public-models.git"
         },
         {
             "type": "git",
             "url": "https://github.com/cfxmarkets/php-jsonapi-objects.git"
+        },
+        {
+            "type": "git",
+            "url": "https://github.com/cfxmarkets/php-std-traits.git"
         }
     ],
     "extra": {
         "branch-alias": {
-            "dev-v1.0.x": "v1.0.x-dev"
+            "dev-v1.0.x": "v1.0.x-dev",
+            "dev-v1.1.x": "v1.1.x-dev"
         }
     }
 }
