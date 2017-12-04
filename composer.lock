@@ -4,16 +4,15 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "e52d5058e552e616837cff3336f79389",
+    "content-hash": "69b1a1b4657ca9bbf7b21188e98e209f",
     "packages": [
         {
             "name": "cfxmarkets/php-jsonapi-objects",
-            "version": "1.2.9999999.9999999-dev",
-            "dist": {
-                "type": "path",
-                "url": "../php-jsonapi-objects",
-                "reference": "4d9c67f3197f87a4672b19bb2cab97df7594b947",
-                "shasum": null
+            "version": "v1.3.x-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/cfxmarkets/php-jsonapi-objects.git",
+                "reference": "68fdf4e021576e4e338c770933e14f8b90167908"
             },
             "require": {
                 "kael-shipman/php-std-traits": "~3.2",
@@ -26,7 +25,8 @@
             "extra": {
                 "branch-alias": {
                     "dev-v1.1.x": "1.1.x-dev",
-                    "dev-v1.2.x": "1.2.x-dev"
+                    "dev-v1.2.x": "1.2.x-dev",
+                    "dev-v1.3.x": "1.3.x-dev"
                 }
             },
             "autoload": {
@@ -51,16 +51,16 @@
                 "api",
                 "json",
                 "jsonapi"
-            ]
+            ],
+            "time": "2017-12-04T16:01:20+00:00"
         },
         {
             "name": "cfxmarkets/php-persistence",
-            "version": "0.1.9999999.9999999-dev",
-            "dist": {
-                "type": "path",
-                "url": "../php-persistence",
-                "reference": "63261ba172853759a0a9f645f56697b92c11bb3e",
-                "shasum": null
+            "version": "v0.1.x-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/cfxmarkets/php-persistence.git",
+                "reference": "da54a47d1437a919509b17d81fef9ab146d09e61"
             },
             "require": {
                 "cfxmarkets/php-jsonapi-objects": "~1.1",
@@ -102,16 +102,16 @@
                 "datacontext",
                 "datasource",
                 "persistence"
-            ]
+            ],
+            "time": "2017-11-27T22:29:52+00:00"
         },
         {
             "name": "cfxmarkets/php-public-models",
-            "version": "1.1.9999999.9999999-dev",
-            "dist": {
-                "type": "path",
-                "url": "../php-public-models",
-                "reference": "2691613ca818d32eb000e5cee4675c2e29308d3b",
-                "shasum": null
+            "version": "v1.3.x-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/cfxmarkets/php-public-models.git",
+                "reference": "ed4e8ed6655eaf50ef2b548dcb810726e88abb56"
             },
             "require": {
                 "cfxmarkets/php-jsonapi-objects": "~1.1",
@@ -126,7 +126,9 @@
             "extra": {
                 "branch-alias": {
                     "dev-v1.0.x": "v1.0.x-dev",
-                    "dev-v1.1.x": "v1.1.x-dev"
+                    "dev-v1.1.x": "v1.1.x-dev",
+                    "dev-v1.2.x": "v1.2.x-dev",
+                    "dev-v1.3.x": "v1.3.x-dev"
                 }
             },
             "autoload": {
@@ -157,7 +159,8 @@
                 "data objects",
                 "exchange",
                 "framework"
-            ]
+            ],
+            "time": "2017-12-02T20:53:28+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",
@@ -315,11 +318,11 @@
         },
         {
             "name": "kael-shipman/php-std-traits",
-            "version": "v3.2.1",
+            "version": "v3.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cfxmarkets/php-std-traits.git",
-                "reference": "996327e11ffbae9ac06b918d9a78e109d14a6a00"
+                "reference": "b0cb23046d93569f62283cd73d904baf8a540f18"
             },
             "require": {
                 "php": ">=5.4.0 < 7"
@@ -356,7 +359,7 @@
             "keywords": [
                 "traits"
             ],
-            "time": "2017-10-16T04:03:38+00:00"
+            "time": "2017-12-02T16:30:16+00:00"
         },
         {
             "name": "psr/http-message",
@@ -565,12 +568,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpspec/prophecy.git",
-                "reference": "ddd9d7ffff1d7c3acd1a79a8e21d5ee5ea7beace"
+                "reference": "e4ed002c67da8eceb0eb8ddb8b3847bb53c5c2bf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/ddd9d7ffff1d7c3acd1a79a8e21d5ee5ea7beace",
-                "reference": "ddd9d7ffff1d7c3acd1a79a8e21d5ee5ea7beace",
+                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/e4ed002c67da8eceb0eb8ddb8b3847bb53c5c2bf",
+                "reference": "e4ed002c67da8eceb0eb8ddb8b3847bb53c5c2bf",
                 "shasum": ""
             },
             "require": {
@@ -620,7 +623,7 @@
                 "spy",
                 "stub"
             ],
-            "time": "2017-11-07T12:00:44+00:00"
+            "time": "2017-11-24T13:59:53+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -690,12 +693,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-file-iterator.git",
-                "reference": "63304292f3cf89b2382b90dd7a2abf9e0ba232f9"
+                "reference": "730b01bc3e867237eaac355e06a36b85dd93a8b4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-file-iterator/zipball/63304292f3cf89b2382b90dd7a2abf9e0ba232f9",
-                "reference": "63304292f3cf89b2382b90dd7a2abf9e0ba232f9",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-file-iterator/zipball/730b01bc3e867237eaac355e06a36b85dd93a8b4",
+                "reference": "730b01bc3e867237eaac355e06a36b85dd93a8b4",
                 "shasum": ""
             },
             "require": {
@@ -729,7 +732,7 @@
                 "filesystem",
                 "iterator"
             ],
-            "time": "2017-10-30T04:21:02+00:00"
+            "time": "2017-11-27T13:52:08+00:00"
         },
         {
             "name": "phpunit/php-text-template",
@@ -827,12 +830,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-token-stream.git",
-                "reference": "958103f327daef5dd0bb328dec53e0a9e43cfaf7"
+                "reference": "58bd196ce8bc49389307b3787934a5117db80fea"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-token-stream/zipball/958103f327daef5dd0bb328dec53e0a9e43cfaf7",
-                "reference": "958103f327daef5dd0bb328dec53e0a9e43cfaf7",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-token-stream/zipball/58bd196ce8bc49389307b3787934a5117db80fea",
+                "reference": "58bd196ce8bc49389307b3787934a5117db80fea",
                 "shasum": ""
             },
             "require": {
@@ -868,7 +871,7 @@
             "keywords": [
                 "tokenizer"
             ],
-            "time": "2017-03-07T08:21:50+00:00"
+            "time": "2017-12-04T15:11:28+00:00"
         },
         {
             "name": "phpunit/phpunit",
@@ -1376,12 +1379,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
-                "reference": "d819bf267e901727141fe828ae888486fd21236e"
+                "reference": "968ef42161e4bc04200119da473077f9e7015128"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/d819bf267e901727141fe828ae888486fd21236e",
-                "reference": "d819bf267e901727141fe828ae888486fd21236e",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/968ef42161e4bc04200119da473077f9e7015128",
+                "reference": "968ef42161e4bc04200119da473077f9e7015128",
                 "shasum": ""
             },
             "require": {
@@ -1417,7 +1420,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-            "time": "2017-11-05T15:25:56+00:00"
+            "time": "2017-11-29T09:33:18+00:00"
         }
     ],
     "aliases": [],
