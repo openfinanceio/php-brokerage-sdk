@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "8b80816fd0574d0daf631ded574e46e1",
+    "content-hash": "e9c0581bd9f15f6e3ab5abebfbae4c78",
     "packages": [
         {
             "name": "cfxmarkets/php-jsonapi-objects",
@@ -56,11 +56,11 @@
         },
         {
             "name": "cfxmarkets/php-persistence",
-            "version": "v0.1.x-dev",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cfxmarkets/php-persistence.git",
-                "reference": "da54a47d1437a919509b17d81fef9ab146d09e61"
+                "reference": "8358e13dac9fe43f9c9b2672d18e12c661d73ec8"
             },
             "require": {
                 "cfxmarkets/php-jsonapi-objects": "~1.1",
@@ -103,7 +103,7 @@
                 "datasource",
                 "persistence"
             ],
-            "time": "2017-11-27T22:29:52+00:00"
+            "time": "2017-11-27T22:31:35+00:00"
         },
         {
             "name": "cfxmarkets/php-public-models",
