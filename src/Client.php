@@ -41,6 +41,10 @@ class Client extends \CFX\Persistence\Rest\AbstractDataContext {
         if ($name === 'addresses') return new \CFX\Persistence\Rest\GenericDatasource($this, "addresses", "\\CFX\\Brokerage\\Address");
         if ($name === 'documents') return new \CFX\Persistence\Rest\GenericDatasource($this, "documents", "\\CFX\\Brokerage\\Document");
         if ($name === 'bankAccounts') return new \CFX\Persistence\Rest\GenericDatasource($this, "bank-accounts", "\\CFX\\Brokerage\\BankAccount");
+        if ($name === 'documentTemplates') return new \CFX\Persistence\Rest\GenericDatasource($this, "document-templates", "\\CFX\\Brokerage\\DocumentTemplate");
+        if ($name === 'dealRooms') return new \CFX\Persistence\Rest\GenericDatasource($this, "deal-rooms", "\\CFX\\Brokerage\\DealRoom");
+        if ($name === 'tenderRooms') return new \CFX\Persistence\Rest\GenericDatasource($this, "tender-rooms", "\\CFX\\Brokerage\\TenderRoom");
+        if ($name === 'tenders') return new \CFX\Persistence\Rest\GenericDatasource($this, "tenders", "\\CFX\\Brokerage\\Tender");
 
         return parent::instantiateDatasource($name);
     }
