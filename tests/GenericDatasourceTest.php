@@ -3,6 +3,7 @@ namespace CFX\SDK\Brokerage;
 
 class GenericDatasourceTest extends \PHPUnit\Framework\TestCase {
     protected static $testAssetIntent = [
+        'type' => 'asset-intents',
         'attributes' =>[
             'symbol' => 'FR008',
             'name' => 'testing intent',
@@ -23,6 +24,7 @@ class GenericDatasourceTest extends \PHPUnit\Framework\TestCase {
     ];
 
     protected static $testAsset = [
+        'type' => 'assets',
         'attributes' =>[
             'issuer' => 'TEMP',
             'name' => '141 South Meridian Street',
@@ -33,6 +35,7 @@ class GenericDatasourceTest extends \PHPUnit\Framework\TestCase {
     ];
 
     protected static $testOrderIntent = [
+        'type' => 'order-intents',
         'attributes' => [
             'numShares' => '1',
             'priceHigh' => '12',
@@ -41,6 +44,7 @@ class GenericDatasourceTest extends \PHPUnit\Framework\TestCase {
     ];
     
     protected static $testOrder = [
+        'type' => 'orders',
         'attributes' => [
             'lotSize' => '1',
             'priceHigh' => '12',
@@ -50,6 +54,7 @@ class GenericDatasourceTest extends \PHPUnit\Framework\TestCase {
     ];
     
     protected static $testUser = [
+        'type' => 'users',
         'attributes' => [
             'email' => 'q@q.com',
             'phoneNumber' => '999',

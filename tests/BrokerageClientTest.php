@@ -114,7 +114,7 @@ class BrokerageClientTest extends \PHPUnit\Framework\TestCase {
     public function testCanGetTenderRoomsSubclient()
     {
         $client = $this->cfx->tenderRooms;
-        $this->assertInstanceOf('\\CFX\\Persistence\\Rest\\GenericDatasource', $client);
+        $this->assertInstanceOf('\\CFX\\SDK\\Brokerage\\TenderRoomsDatasource', $client);
         $this->assertInstanceOf("\\CFX\\Brokerage\\TenderRoom", $client->create());
         $this->assertEquals("tender-rooms", $client->getResourceType());
     }

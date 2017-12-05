@@ -35,7 +35,7 @@ class Client extends \CFX\Persistence\Rest\AbstractDataContext {
         if ($name === 'assetIntents') return new \CFX\Persistence\Rest\GenericDatasource($this, "asset-intents", "\\CFX\\Brokerage\\AssetIntent");
         if ($name === 'orders') return new \CFX\Persistence\Rest\GenericDatasource($this, "orders", "\\CFX\\Exchange\\Order");
         if ($name === 'orderIntents') return new \CFX\Persistence\Rest\GenericDatasource($this, "order-intents", "\\CFX\\Brokerage\\OrderIntent");
-        if ($name === 'users') return new UsersDatasource($this);
+        if ($name === 'users') return new UsersDatasource($this, "users", "\\CFX\\Brokerage\\User");
         if ($name === 'oauthTokens') return new \CFX\Persistence\Rest\GenericDatasource($this, "oauth-tokens", "\\CFX\\Brokerage\\OAuthToken");
         if ($name === 'legalEntities') return new \CFX\Persistence\Rest\GenericDatasource($this, "legal-entities", "\\CFX\\Brokerage\\LegalEntity");
         if ($name === 'addresses') return new \CFX\Persistence\Rest\GenericDatasource($this, "addresses", "\\CFX\\Brokerage\\Address");
@@ -43,7 +43,7 @@ class Client extends \CFX\Persistence\Rest\AbstractDataContext {
         if ($name === 'bankAccounts') return new \CFX\Persistence\Rest\GenericDatasource($this, "bank-accounts", "\\CFX\\Brokerage\\BankAccount");
         if ($name === 'documentTemplates') return new \CFX\Persistence\Rest\GenericDatasource($this, "document-templates", "\\CFX\\Brokerage\\DocumentTemplate");
         if ($name === 'dealRooms') return new \CFX\Persistence\Rest\GenericDatasource($this, "deal-rooms", "\\CFX\\Brokerage\\DealRoom");
-        if ($name === 'tenderRooms') return new \CFX\Persistence\Rest\GenericDatasource($this, "tender-rooms", "\\CFX\\Brokerage\\TenderRoom");
+        if ($name === 'tenderRooms') return new TenderRoomsDatasource($this, "tender-rooms", "\\CFX\\Brokerage\\TenderRoom");
         if ($name === 'tenders') return new \CFX\Persistence\Rest\GenericDatasource($this, "tenders", "\\CFX\\Brokerage\\Tender");
 
         return parent::instantiateDatasource($name);
