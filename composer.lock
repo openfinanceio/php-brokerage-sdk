@@ -8,11 +8,11 @@
     "packages": [
         {
             "name": "cfxmarkets/php-jsonapi-objects",
-            "version": "v1.2.3",
+            "version": "v1.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cfxmarkets/php-jsonapi-objects.git",
-                "reference": "16fbf39c4c0210890cd552efa371a9e0ec5983f7"
+                "reference": "f1d553a251a55ff22ab4fb63e07121c42c60d290"
             },
             "require": {
                 "kael-shipman/php-std-traits": "~3.2",
@@ -25,7 +25,8 @@
             "extra": {
                 "branch-alias": {
                     "dev-v1.1.x": "1.1.x-dev",
-                    "dev-v1.2.x": "1.2.x-dev"
+                    "dev-v1.2.x": "1.2.x-dev",
+                    "dev-v1.3.x": "1.3.x-dev"
                 }
             },
             "autoload": {
@@ -51,15 +52,15 @@
                 "json",
                 "jsonapi"
             ],
-            "time": "2017-12-04T15:59:37+00:00"
+            "time": "2017-12-13T21:22:49+00:00"
         },
         {
             "name": "cfxmarkets/php-persistence",
-            "version": "v0.2.1",
+            "version": "v0.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cfxmarkets/php-persistence.git",
-                "reference": "5d1191734d7d0ca14c33e3ea7d6cffdae84bfa0a"
+                "reference": "23c5e0e0fd037871882292221e9d35bb73be2000"
             },
             "require": {
                 "cfxmarkets/php-jsonapi-objects": "~1.1",
@@ -102,15 +103,15 @@
                 "datasource",
                 "persistence"
             ],
-            "time": "2017-12-05T01:57:37+00:00"
+            "time": "2017-12-13T21:52:49+00:00"
         },
         {
             "name": "cfxmarkets/php-public-models",
-            "version": "v1.3.0",
+            "version": "v1.3.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cfxmarkets/php-public-models.git",
-                "reference": "1e46f73bea5c2f342b189901980c9da913aee5a7"
+                "reference": "7c74a75c435835cedba155fbe7e7c8b0980e506f"
             },
             "require": {
                 "cfxmarkets/php-jsonapi-objects": "~1.1",
@@ -159,7 +160,7 @@
                 "exchange",
                 "framework"
             ],
-            "time": "2017-12-05T02:08:51+00:00"
+            "time": "2017-12-13T20:12:29+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",
@@ -316,11 +317,11 @@
         },
         {
             "name": "kael-shipman/php-std-traits",
-            "version": "v3.2.2",
+            "version": "v3.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cfxmarkets/php-std-traits.git",
-                "reference": "b0cb23046d93569f62283cd73d904baf8a540f18"
+                "reference": "9e25f79b87fa493a86641f56cf77af37d5cfd3d4"
             },
             "require": {
                 "php": ">=5.4.0 < 7"
@@ -357,7 +358,7 @@
             "keywords": [
                 "traits"
             ],
-            "time": "2017-12-02T16:30:16+00:00"
+            "time": "2017-12-13T19:56:48+00:00"
         },
         {
             "name": "psr/http-message",

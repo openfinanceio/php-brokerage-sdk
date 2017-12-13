@@ -15,8 +15,8 @@ class GenericDatasourceTest extends \PHPUnit\Framework\TestCase {
             'cusipNum' => '0',
             'sharesOutstanding' => '0',
             'offerAmount' => '0',
-            'dateOpened' => '2005-01-01 00:00:00',
-            'dateClosed' => '2005-01-01 00:00:00',
+            'dateOpened' => 1234566666,
+            'dateClosed' => 1234556677,
             'initialSharePrice' => '0',
             'holdingPeriod' => '0',
             'comments' => '',
@@ -64,6 +64,55 @@ class GenericDatasourceTest extends \PHPUnit\Framework\TestCase {
         ],
     ];
 
+
+
+    public function testGenericDatasourceSendsPartialDataForChanges()
+    {
+        $httpClient = new \CFX\Persistence\Test\HttpClient();
+        $cfx = new \CFX\SDK\Brokerage\Client('https://null.cfxtrading.com', '12345', 'abcde', $httpClient);
+
+        $testIntent = self::$testAssetIntent;
+        $testIntent['id'] = '12345';
+        $httpClient->setNextResponse(new \GuzzleHttp\Message\Response(
+            200,
+            ['Content-Type' => 'application/json'],
+            \GuzzleHttp\Stream\Stream::factory(json_encode(['data' => $testIntent]))
+        ));
+
+        $intent = $cfx->assetIntents->get('id=12345');
+
+        $this->assertEquals(['type' => 'asset-intents', 'id' => '12345', 'attributes' => []], $intent->getChanges());
+
+        $intent
+            ->setDescription('new description')
+            ->setExemptionType('Reg A+');
+
+        $expectedChanges = [
+            'id' => '12345',
+            'type' => 'asset-intents',
+            'attributes' => [
+                'description' => 'new description',
+                'exemptionType' => 'Reg A+',
+            ]
+        ];
+
+        $this->assertEquals($expectedChanges, $intent->getChanges());
+
+        $testIntent['attributes']['description'] = 'new description';
+        $testIntent['attributes']['exemptionType'] = 'Reg A+';
+        $httpClient->setNextResponse(new \GuzzleHttp\Message\Response(
+            200,
+            ['Content-Type' => 'application/json'],
+            \GuzzleHttp\Stream\Stream::factory(json_encode(['data' => $testIntent]))
+        ));
+        $intent->save();
+
+        $r = $httpClient->getLastRequest();
+        $data = json_decode($r->getBody(), true);
+        $this->assertTrue(is_array($data));
+        $this->assertContains('data', array_keys($data));
+        $this->assertEquals($expectedChanges, $data['data']);
+    }
 
 
     public function testAssetIntentsClientComposesUriCorrectly() {
