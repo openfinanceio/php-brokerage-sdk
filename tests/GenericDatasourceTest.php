@@ -73,10 +73,10 @@ class GenericDatasourceTest extends \PHPUnit\Framework\TestCase {
 
         $testIntent = self::$testAssetIntent;
         $testIntent['id'] = '12345';
-        $httpClient->setNextResponse(new \GuzzleHttp\Message\Response(
+        $httpClient->setNextResponse(new \GuzzleHttp\Psr7\Response(
             200,
             ['Content-Type' => 'application/json'],
-            \GuzzleHttp\Stream\Stream::factory(json_encode(['data' => $testIntent]))
+            \GuzzleHttp\Psr7\stream_for(json_encode(['data' => $testIntent]))
         ));
 
         $intent = $cfx->assetIntents->get('id=12345');
@@ -100,10 +100,10 @@ class GenericDatasourceTest extends \PHPUnit\Framework\TestCase {
 
         $testIntent['attributes']['description'] = 'new description';
         $testIntent['attributes']['exemptionType'] = 'Reg A+';
-        $httpClient->setNextResponse(new \GuzzleHttp\Message\Response(
+        $httpClient->setNextResponse(new \GuzzleHttp\Psr7\Response(
             200,
             ['Content-Type' => 'application/json'],
-            \GuzzleHttp\Stream\Stream::factory(json_encode(['data' => $testIntent]))
+            \GuzzleHttp\Psr7\stream_for(json_encode(['data' => $testIntent]))
         ));
         $intent->save();
 
@@ -120,123 +120,123 @@ class GenericDatasourceTest extends \PHPUnit\Framework\TestCase {
         $cfx = new \CFX\SDK\Brokerage\Client('https://null.cfxtrading.com', '12345', 'abcde', $httpClient);
 
             
-        $httpClient->setNextResponse(new \GuzzleHttp\Message\Response(
+        $httpClient->setNextResponse(new \GuzzleHttp\Psr7\Response(
             200,
             ['Content-Type' => 'application/json'],
-            \GuzzleHttp\Stream\Stream::factory(json_encode(['data' => [self::$testAssetIntent]]))
+            \GuzzleHttp\Psr7\stream_for(json_encode(['data' => [self::$testAssetIntent]]))
         ));
         $assetIntents = $cfx->assetIntents->get();
         $r = $httpClient->getLastRequest();
-        $this->assertEquals('https://null.cfxtrading.com/brokerage/v2/asset-intents', $r->getUrl());
+        $this->assertEquals('https://null.cfxtrading.com/brokerage/v2/asset-intents', $r->getUri());
 
-        $httpClient->setNextResponse(new \GuzzleHttp\Message\Response(
+        $httpClient->setNextResponse(new \GuzzleHttp\Psr7\Response(
             200,
             ['Content-Type' => 'application/json'],
-            \GuzzleHttp\Stream\Stream::factory(json_encode(['data' => self::$testAssetIntent]))
+            \GuzzleHttp\Psr7\stream_for(json_encode(['data' => self::$testAssetIntent]))
         ));
         $assetIntents = $cfx->assetIntents->get('id=FR008');
         $r = $httpClient->getLastRequest();
-        $this->assertEquals('https://null.cfxtrading.com/brokerage/v2/asset-intents/FR008', $r->getUrl());
+        $this->assertEquals('https://null.cfxtrading.com/brokerage/v2/asset-intents/FR008', $r->getUri());
     }
 
     public function testAssetsClientComposesUriCorrectly() {
         $httpClient = new \CFX\Persistence\Test\HttpClient();
         $cfx = new \CFX\SDK\Brokerage\Client('https://null.cfxtrading.com', '12345', 'abcde', $httpClient);
 
-        $httpClient->setNextResponse(new \GuzzleHttp\Message\Response(
+        $httpClient->setNextResponse(new \GuzzleHttp\Psr7\Response(
             200,
             ['Content-Type' => 'application/json'],
-            \GuzzleHttp\Stream\Stream::factory(json_encode(['data' => [self::$testAsset]]))
+            \GuzzleHttp\Psr7\stream_for(json_encode(['data' => [self::$testAsset]]))
         ));
         $assets = $cfx->assets->get();
         $r = $httpClient->getLastRequest();
-        $this->assertEquals('https://null.cfxtrading.com/brokerage/v2/assets', $r->getUrl());
+        $this->assertEquals('https://null.cfxtrading.com/brokerage/v2/assets', $r->getUri());
 
-        $httpClient->setNextResponse(new \GuzzleHttp\Message\Response(
+        $httpClient->setNextResponse(new \GuzzleHttp\Psr7\Response(
             200,
             ['Content-Type' => 'application/json'],
-            \GuzzleHttp\Stream\Stream::factory(json_encode(['data' => self::$testAsset]))
+            \GuzzleHttp\Psr7\stream_for(json_encode(['data' => self::$testAsset]))
         ));
         $assets = $cfx->assets->get('id=FR008');
         $r = $httpClient->getLastRequest();
-        $this->assertEquals('https://null.cfxtrading.com/brokerage/v2/assets/FR008', $r->getUrl());
+        $this->assertEquals('https://null.cfxtrading.com/brokerage/v2/assets/FR008', $r->getUri());
     }
 
     public function testOrderIntentsClientComposesUriCorrectly() {
         $httpClient = new \CFX\Persistence\Test\HttpClient();
         $cfx = new \CFX\SDK\Brokerage\Client('https://null.cfxtrading.com', '12345', 'abcde', $httpClient);
 
-        $httpClient->setNextResponse(new \GuzzleHttp\Message\Response(
+        $httpClient->setNextResponse(new \GuzzleHttp\Psr7\Response(
             200,
             ['Content-Type' => 'application/json'],
-            \GuzzleHttp\Stream\Stream::factory(json_encode(['data' => [self::$testOrderIntent]]))
+            \GuzzleHttp\Psr7\stream_for(json_encode(['data' => [self::$testOrderIntent]]))
         ));
 
         $cfx->setOAuthToken('12345');
         $orderIntents = $cfx->orderIntents->get();
         $r = $httpClient->getLastRequest();
-        $this->assertEquals('https://null.cfxtrading.com/brokerage/v2/order-intents', $r->getUrl());
+        $this->assertEquals('https://null.cfxtrading.com/brokerage/v2/order-intents', $r->getUri());
 
-        $httpClient->setNextResponse(new \GuzzleHttp\Message\Response(
+        $httpClient->setNextResponse(new \GuzzleHttp\Psr7\Response(
             200,
             ['Content-Type' => 'application/json'],
-            \GuzzleHttp\Stream\Stream::factory(json_encode(['data' => self::$testOrderIntent]))
+            \GuzzleHttp\Psr7\stream_for(json_encode(['data' => self::$testOrderIntent]))
         ));
         $orderIntents = $cfx->orderIntents->get('id=OR008');
         $r = $httpClient->getLastRequest();
-        $this->assertEquals('https://null.cfxtrading.com/brokerage/v2/order-intents/OR008', $r->getUrl());
+        $this->assertEquals('https://null.cfxtrading.com/brokerage/v2/order-intents/OR008', $r->getUri());
     }
 
     public function testOrdersClientComposesUriCorrectly() {
         $httpClient = new \CFX\Persistence\Test\HttpClient();
         $cfx = new \CFX\SDK\Brokerage\Client('https://null.cfxtrading.com', '12345', 'abcde', $httpClient);
 
-        $httpClient->setNextResponse(new \GuzzleHttp\Message\Response(
+        $httpClient->setNextResponse(new \GuzzleHttp\Psr7\Response(
             200,
             ['Content-Type' => 'application/json'],
-            \GuzzleHttp\Stream\Stream::factory(json_encode(['data' => [self::$testOrder]]))
+            \GuzzleHttp\Psr7\stream_for(json_encode(['data' => [self::$testOrder]]))
         ));
 
         $cfx->setOAuthToken('12345');
 
         $orders = $cfx->orders->get();
         $r = $httpClient->getLastRequest();
-        $this->assertEquals('https://null.cfxtrading.com/brokerage/v2/orders', $r->getUrl());
+        $this->assertEquals('https://null.cfxtrading.com/brokerage/v2/orders', $r->getUri());
 
-        $httpClient->setNextResponse(new \GuzzleHttp\Message\Response(
+        $httpClient->setNextResponse(new \GuzzleHttp\Psr7\Response(
             200,
             ['Content-Type' => 'application/json'],
-            \GuzzleHttp\Stream\Stream::factory(json_encode(['data' => self::$testOrder]))
+            \GuzzleHttp\Psr7\stream_for(json_encode(['data' => self::$testOrder]))
         ));
         $orders = $cfx->orders->get('id=FR008');
         $r = $httpClient->getLastRequest();
-        $this->assertEquals('https://null.cfxtrading.com/brokerage/v2/orders/FR008', $r->getUrl());
+        $this->assertEquals('https://null.cfxtrading.com/brokerage/v2/orders/FR008', $r->getUri());
     }
 
     public function testUsersClientComposesUriCorrectly() {
         $httpClient = new \CFX\Persistence\Test\HttpClient();
         $cfx = new \CFX\SDK\Brokerage\Client('https://null.cfxtrading.com', '12345', 'abcde', $httpClient);
 
-        $httpClient->setNextResponse(new \GuzzleHttp\Message\Response(
+        $httpClient->setNextResponse(new \GuzzleHttp\Psr7\Response(
             200,
             ['Content-Type' => 'application/json'],
-            \GuzzleHttp\Stream\Stream::factory(json_encode(['data' => [self::$testUser]]))
+            \GuzzleHttp\Psr7\stream_for(json_encode(['data' => [self::$testUser]]))
         ));
 
         $cfx->setOAuthToken('12345');
 
         $users = $cfx->users->get();
         $r = $httpClient->getLastRequest();
-        $this->assertEquals('https://null.cfxtrading.com/brokerage/v2/users', $r->getUrl());
+        $this->assertEquals('https://null.cfxtrading.com/brokerage/v2/users', $r->getUri());
 
-        $httpClient->setNextResponse(new \GuzzleHttp\Message\Response(
+        $httpClient->setNextResponse(new \GuzzleHttp\Psr7\Response(
             200,
             ['Content-Type' => 'application/json'],
-            \GuzzleHttp\Stream\Stream::factory(json_encode(['data' => self::$testUser]))
+            \GuzzleHttp\Psr7\stream_for(json_encode(['data' => self::$testUser]))
         ));
         $users = $cfx->users->get('id=FR008');
         $r = $httpClient->getLastRequest();
-        $this->assertEquals('https://null.cfxtrading.com/brokerage/v2/users/FR008', $r->getUrl());
+        $this->assertEquals('https://null.cfxtrading.com/brokerage/v2/users/FR008', $r->getUri());
     }
 }
 
