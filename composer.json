@@ -10,7 +10,7 @@
             "homepage": "https://github.com/cfxmarkets/php-broker-lib/graphs/contributors"
         }
     ],
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "require" : {
         "php" : ">=5.4.0",
         "psr/http-message": "~1.0",
