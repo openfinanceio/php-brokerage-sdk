@@ -19,9 +19,19 @@ class Client extends \CFX\Persistence\Rest\AbstractDataContext {
     protected static $apiVersion = '2';
 
     /**
-     * @var string An OAuth token to use as authentication for requests that require it
+     * @var string A v1 OAuth token to use as authentication for requests that require it
      */
-    protected $oAuthToken;
+    protected $oAuthTokenV1;
+
+    /**
+     * @var string A v2 OAuth token to use as authentication for requests that require it
+     */
+    protected $oAuthTokenV2;
+
+    /**
+     * @var string A v2 ID token to use as authentication for requests that require it
+     */
+    protected $idToken;
 
     /**
      * @inheritdoc
@@ -31,6 +41,7 @@ class Client extends \CFX\Persistence\Rest\AbstractDataContext {
      * won't have access to.
      */
     protected function instantiateDatasource($name) {
+        if ($name === 'aclEntries') return new \CFX\Persistence\Rest\GenericDatasource($this, "acl-entries", "\\CFX\\Brokerage\\AclEntry");
         if ($name === 'assets') return new \CFX\Persistence\Rest\GenericDatasource($this, "assets", "\\CFX\\Exchange\\Asset");
         if ($name === 'assetIntents') return new \CFX\Persistence\Rest\GenericDatasource($this, "asset-intents", "\\CFX\\Brokerage\\AssetIntent");
         if ($name === 'orders') return new \CFX\Persistence\Rest\GenericDatasource($this, "orders", "\\CFX\\Exchange\\Order");
@@ -50,7 +61,9 @@ class Client extends \CFX\Persistence\Rest\AbstractDataContext {
     }
 
     /**
-     * setOAuthToken -- Set an OAuth token to be used for requests that require one
+     * setOAuthToken -- Set a v1 OAuth token to be used for requests that require one
+     *
+     * NOTE: This is a v1 oauth token. For v2 oauth token, use `setV2OAuthToken`
      *
      * @param string|\CFX\Brokerage\OAuthTokenInterface|null $token the token to use
      */
@@ -58,7 +71,29 @@ class Client extends \CFX\Persistence\Rest\AbstractDataContext {
         if ($token instanceof \CFX\Brokerage\OAuthTokenInterface) {
             $token = $token->getId();
         }
-        $this->oAuthToken = $token;
+        $this->oAuthTokenV1 = $token;
+    }
+
+    /**
+     * setOAuthTokenV2 -- Set a v2 OAuth token to be used for requests that require one
+     *
+     * @param string|\CFX\Brokerage\OAuthTokenInterface|null $token the token to use
+     */
+    public function setOAuthTokenV2($token = null) {
+        if ($token instanceof \CFX\Brokerage\OAuthTokenInterface) {
+            $token = $token->getId();
+        }
+        $this->oAuthTokenV2 = $token;
+    }
+
+    /**
+     * setIdToken -- Set a v2 ID Token
+     *
+     * @param string $token The token to use
+     */
+    public function setIdToken($token = null)
+    {
+        $this->idToken = $token;
     }
 
     /**
@@ -71,19 +106,39 @@ class Client extends \CFX\Persistence\Rest\AbstractDataContext {
      */
     public function sendRequest($method, $endpoint, array $params = []) {
         if ($this->requestRequiresOAuth($method, $endpoint, $params)) {
-            if ($this->oAuthToken) {
+            if ($this->oAuthTokenV1 || $this->oAuthTokenV2) {
                 if (!array_key_exists('headers', $params)) $params['headers'] = [];
 
+                // Add the Bearer Authorization header, if not already set
                 $set = false;
-                for($i = 0, $keys = array_keys($params['headers']), $ln = count($keys); $i < $ln; $i++) {
-                    if (strtolower($keys[$i]) === 'authorization') {
-                        $set = true;
-                        break;
+                $authHeader = $params["headers"]["authorization"] ?? null;
+                if ($authHeader) {
+                    $authHeader = explode(",", $authHeader);
+                    foreach($authHeader as $auth) {
+                        if (strtolower(substr($auth, 0, strlen("bearer "))) === "bearer ") {
+                            $set = true;
+                        }
                     }
+                } else {
+                    $authHeader = [];
                 }
 
                 if (!$set) {
-                    $params['headers']['Authorization'] = "Bearer $this->oAuthToken";
+                    $authHeader[] = "Bearer ".($this->oAuthTokenV2 ?? $this->oAuthTokenV1);
+                }
+
+                $params['headers']['Authorization'] = implode(",", $authHeader);
+
+                // Set the Auth version header, if using v2
+                if ($this->oAuthTokenV2) {
+                    if (!$this->getHeaderValue($params["headers"], "x-auth-version")) {
+                        $params["headers"]["X-Auth-Version"] = 2;
+                    }
+                }
+
+                // Set the id token, if provided
+                if ($this->idToken) {
+                    $params["headers"]["X-ID-Token"] = $this->idToken;
                 }
             } else {
                 throw new \RuntimeException(
@@ -125,6 +180,16 @@ class Client extends \CFX\Persistence\Rest\AbstractDataContext {
         }
 
         return false;
+    }
+
+    protected function getHeaderValue(array $headers, string $key)
+    {
+        foreach($headers as $k => $v) {
+            if (strtolower($k) === strtolower($key)) {
+                return $v;
+            }
+            return null;
+        }
     }
 }
 

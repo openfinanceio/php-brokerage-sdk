@@ -12,6 +12,14 @@ class UsersDatasource extends \CFX\Persistence\Rest\GenericDatasource
         if ($type === 'oAuthTokens') {
             return new \CFX\JsonApi\ResourceCollection();
         }
+        if ($type === "otherEntities") {
+            $acls = $this->context->aclEntries->get("actorType=users and actorId=$id and targetType=legal-entities");
+            $entities = new \CFX\JsonApi\ResourceCollection();
+            foreach($acls as $acl) {
+                $entities[] = $acl->getTarget();
+            }
+            return $entities;
+        }
         return parent::getRelated($type, $id);
     }
 }
