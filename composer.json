@@ -14,7 +14,7 @@
     "require" : {
         "php" : ">=5.4.0",
         "psr/http-message": "~1.0",
-        "cfxmarkets/php-persistence": "^0.3.0 || ^0.4.0",
+        "cfxmarkets/php-persistence": "^0.3.0 || ^0.4.0 || ^0.5.0",
         "cfxmarkets/php-public-models": "^1.4.0"
     },
     "require-dev" : {
