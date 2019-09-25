@@ -129,11 +129,9 @@ class Client extends \CFX\Persistence\Rest\AbstractDataContext {
 
                 $params['headers']['Authorization'] = implode(",", $authHeader);
 
-                // Set the Auth version header, if using v2
-                if ($this->oAuthTokenV2) {
-                    if (!$this->getHeaderValue($params["headers"], "x-auth-version")) {
-                        $params["headers"]["X-Auth-Version"] = 2;
-                    }
+                // Set the Auth version header
+                if (!$this->getHeaderValue($params["headers"], "x-auth-version")) {
+                    $params["headers"]["X-Auth-Version"] = $this->oAuthTokenV2 ? 2 : 1;
                 }
 
                 // Set the id token, if provided
